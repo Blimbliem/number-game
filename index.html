@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Jogo de Adivinhação de Números</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="canvasConfete"></canvas>
+
+  <main class="cartao-jogo">
+    <header class="cabecalho">
+      <div class="linha-topo">
+        <span class="icone-jogo" aria-hidden="true">🎯</span>
+        <button id="btnSom" class="btn-icone" title="Ativar/Desativar som" aria-label="Alternar som">🔊</button>
+      </div>
+      <h1>Adivinhe o Número</h1>
+      <p id="descricaoDificuldade">Pensei em um número entre <strong>1 e 100</strong>.</p>
+    </header>
+
+    <div class="seletor-dificuldade">
+      <span class="label-dificuldade">Dificuldade:</span>
+      <div class="botoes-dificuldade">
+        <button type="button" class="btn-dif" data-dif="facil">Fácil (1-50)</button>
+        <button type="button" class="btn-dif ativa" data-dif="medio">Médio (1-100)</button>
+        <button type="button" class="btn-dif" data-dif="dificil">Difícil (1-500)</button>
+      </div>
+    </div>
+
+    <div class="barra-status">
+      <div class="status-item">
+        <span class="status-rotulo">Vidas:</span>
+        <span id="displayVidas" class="coracoes">❤️❤️❤️❤️❤️❤️❤️</span>
+      </div>
+      <div class="status-item">
+        <span class="status-rotulo">Tentativas:</span>
+        <strong id="contadorTentativas">0</strong>
+      </div>
+    </div>
+
+    <div class="barra-recorde">
+      <span>🏆 Recorde neste modo:</span>
+      <strong id="displayRecorde">--</strong>
+    </div>
+
+    <form id="formPalpite" class="formulario-palpite" onsubmit="return false;">
+      <label for="inputPalpite">Seu palpite:</label>
+      <div class="linha-input">
+        <input type="number" id="inputPalpite" placeholder="Ex: 50" autocomplete="off" inputmode="numeric">
+        <button type="button" id="btnChutar" class="btn-primario">Chutar</button>
+      </div>
+    </form>
+
+    <div id="painelMensagem" class="painel-mensagem oculta">
+      <p id="textoMensagem"></p>
+    </div>
+
+    <div id="painelCompartilhar" class="painel-compartilhar oculta">
+      <button type="button" id="btnCompartilhar" class="btn-compartilhar">
+        📋 Copiar Resultado para WhatsApp
+      </button>
+      <span id="avisoCopiado" class="aviso-copiado oculta">Copiado com sucesso! 🎉</span>
+    </div>
+
+    <div id="secaoHistorico" class="secao-historico oculta">
+      <div class="cabecalho-historico">
+        <span>Palpites anteriores:</span>
+        <span id="qtdHistorico">0</span>
+      </div>
+      <div id="listaPalpites" class="lista-palpites"></div>
+    </div>
+
+    <footer class="rodape-jogo">
+      <button type="button" id="btnReiniciar" class="btn-texto">Reiniciar Jogo</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
